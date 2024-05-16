@@ -103,3 +103,6 @@ vim.api.nvim_set_hl(0, 'FlashCurrent', {
     bg = '#543F81',
     fg = 'white'
 })
+
+
+-- FlashLabel = { bg = "#ff007c", bold = true, fg = "#c8d3f5" }

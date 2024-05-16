@@ -38,7 +38,7 @@ vim.opt.ignorecase = true
 -- disable "ignorecase" option if the search pattern contains upper case characters
 vim.opt.smartcase = true
 
--- install lazy.nvim
+-- lazy
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.fn.system(
@@ -47,7 +47,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({{
+require('lazy').setup({{
     'vscode-neovim/vscode-multi-cursor.nvim',
     event = 'VeryLazy',
     cond = not not vim.g.vscode,
@@ -63,20 +63,7 @@ require("lazy").setup({{
     }
 }})
 
-vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
-    remap = true
-})
-
-vim.api.nvim_set_hl(0, 'VSCodeCursor', {
-    bg = '#542fa4',
-    fg = '#ffffff',
-    default = true
-})
-vim.api.nvim_set_hl(0, 'VSCodeCursorRange', {
-    bg = '#542fa4',
-    fg = '#ffffff',
-    default = true
-})
+-- flash
 vim.api.nvim_set_hl(0, 'FlashLabel', {
     bg = '#E91E63',
     fg = 'white'
@@ -90,16 +77,36 @@ vim.api.nvim_set_hl(0, 'FlashCurrent', {
     fg = 'white'
 })
 
-local multiCursor = require('vscode-multi-cursor')
+-- vscode-multi-cursor
+vim.api.nvim_set_hl(0, 'VSCodeCursor', {
+    bg = '#542fa4',
+    fg = '#ffffff',
+    default = true
+})
+vim.api.nvim_set_hl(0, 'VSCodeCursorRange', {
+    bg = '#542fa4',
+    fg = '#ffffff',
+    default = true
+})
+
+local cursors = require('vscode-multi-cursor')
+
+vim.keymap.set({ 'n', 'x' }, 'mm', cursors.create_cursor, { expr = true, desc = 'Create cursor' })
+vim.keymap.set({ 'n' }, 'mcm', cursors.cancel, { desc = 'Cancel/Clear all cursors' })
 
 vim.keymap.set({'n', 'x', 'i'}, '<c-d>', function()
-    multiCursor.addSelectionToNextFindMatch()
+    cursors.addSelectionToNextFindMatch()
 end)
 
 vim.keymap.set({'n', 'x', 'i'}, '<cs-d>', function()
-    multiCursor.addSelectionToPreviousFindMatch()
+    cursors.addSelectionToPreviousFindMatch()
 end)
 
 vim.keymap.set({'n', 'x', 'i'}, '<cs-l>', function()
-    multiCursor.selectHighlights()
+    cursors.selectHighlights()
 end)
+
+vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
+    remap = true
+})
+

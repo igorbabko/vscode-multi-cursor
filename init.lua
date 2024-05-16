@@ -20,10 +20,10 @@ vim.keymap.set('n', '\'', ';')
 vim.keymap.set('v', 'p', 'P')
 
 -- redo
-vim.keymap.set('n', 'U', '<C-r>')
+vim.keymap.set('n', 'U', '<c-r>')
 
 -- clear search highlighting
-vim.keymap.set('n', '<Esc>', ':nohlsearch<cr>')
+vim.keymap.set('n', '<esc>', ':nohlsearch<cr>')
 
 -- skip folds (down, up)
 vim.cmd('nmap k gj')
@@ -103,6 +103,3 @@ vim.api.nvim_set_hl(0, 'FlashCurrent', {
     bg = '#543F81',
     fg = 'white'
 })
-
-
--- FlashLabel = { bg = "#ff007c", bold = true, fg = "#c8d3f5" }

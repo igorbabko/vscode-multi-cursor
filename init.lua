@@ -52,6 +52,15 @@ require("lazy").setup({{
     event = 'VeryLazy',
     cond = not not vim.g.vscode,
     opts = {}
+}, {
+    'folke/flash.nvim',
+    opts = {
+        modes = {
+            char = {
+                jump_labels = true
+            }
+        }
+    }
 }})
 
 vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
@@ -71,3 +80,26 @@ end)
 vim.keymap.set({'n', 'x', 'i'}, '<cs-l>', function()
     multiCursor.selectHighlights()
 end)
+
+vim.api.nvim_set_hl(0, 'VSCodeCursor', {
+    bg = '#542fa4',
+    fg = '#ffffff',
+    default = true
+})
+vim.api.nvim_set_hl(0, 'VSCodeCursorRange', {
+    bg = '#542fa4',
+    fg = '#ffffff',
+    default = true
+})
+vim.api.nvim_set_hl(0, 'FlashLabel', {
+    bg = '#E91E63',
+    fg = 'white'
+})
+vim.api.nvim_set_hl(0, 'FlashMatch', {
+    bg = '#543F81',
+    fg = 'white'
+})
+vim.api.nvim_set_hl(0, 'FlashCurrent', {
+    bg = '#543F81',
+    fg = 'white'
+})

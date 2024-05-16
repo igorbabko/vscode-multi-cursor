@@ -1,0 +1,6 @@
+[
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.reloadWindow"
+  }
+]

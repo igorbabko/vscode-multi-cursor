@@ -67,20 +67,6 @@ vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
     remap = true
 })
 
-local multiCursor = require('vscode-multi-cursor')
-
-vim.keymap.set({'n', 'x', 'i'}, '<c-d>', function()
-    multiCursor.addSelectionToNextFindMatch()
-end)
-
-vim.keymap.set({'n', 'x', 'i'}, '<cs-d>', function()
-    multiCursor.addSelectionToPreviousFindMatch()
-end)
-
-vim.keymap.set({'n', 'x', 'i'}, '<cs-l>', function()
-    multiCursor.selectHighlights()
-end)
-
 vim.api.nvim_set_hl(0, 'VSCodeCursor', {
     bg = '#542fa4',
     fg = '#ffffff',
@@ -103,3 +89,17 @@ vim.api.nvim_set_hl(0, 'FlashCurrent', {
     bg = '#543F81',
     fg = 'white'
 })
+
+local multiCursor = require('vscode-multi-cursor')
+
+vim.keymap.set({'n', 'x', 'i'}, '<c-d>', function()
+    multiCursor.addSelectionToNextFindMatch()
+end)
+
+vim.keymap.set({'n', 'x', 'i'}, '<cs-d>', function()
+    multiCursor.addSelectionToPreviousFindMatch()
+end)
+
+vim.keymap.set({'n', 'x', 'i'}, '<cs-l>', function()
+    multiCursor.selectHighlights()
+end)

@@ -58,14 +58,14 @@ vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
     remap = true
 })
 
-vim.keymap.set({"n", "x", "i"}, "<C-d>", function()
-    require("vscode-multi-cursor").addSelectionToNextFindMatch()
+vim.keymap.set({'n', 'x', 'i'}, '<c-d>', function()
+    require('vscode-multi-cursor').addSelectionToNextFindMatch()
 end)
 
-vim.keymap.set({"n", "x", "i"}, "<CS-d>", function()
-    require("vscode-multi-cursor").addSelectionToPreviousFindMatch()
+vim.keymap.set({'n', 'x', 'i'}, '<cs-d>', function()
+    require('vscode-multi-cursor').addSelectionToPreviousFindMatch()
 end)
 
-vim.keymap.set({"n", "x", "i"}, "<CS-l>", function()
-    require("vscode-multi-cursor").selectHighlights()
+vim.keymap.set({'n', 'x', 'i'}, '<cs-l>', function()
+    require('vscode-multi-cursor').selectHighlights()
 end)

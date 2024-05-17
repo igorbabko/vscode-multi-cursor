@@ -103,14 +103,14 @@ vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
 
 -- flash
 vim.api.nvim_set_hl(0, 'FlashLabel', {
-    bg = '#e91e63',
+    bg = '#e11684',
     fg = 'white'
 })
 vim.api.nvim_set_hl(0, 'FlashMatch', {
-    bg = '#543f81',
+    bg = '#7c634c',
     fg = 'white'
 })
 vim.api.nvim_set_hl(0, 'FlashCurrent', {
-    bg = '#543f81',
+    bg = '#7c634c',
     fg = 'white'
 })

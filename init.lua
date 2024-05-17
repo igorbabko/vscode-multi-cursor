@@ -63,20 +63,6 @@ require('lazy').setup({{
     }
 }})
 
--- flash
-vim.api.nvim_set_hl(0, 'FlashLabel', {
-    bg = '#E91E63',
-    fg = 'white'
-})
-vim.api.nvim_set_hl(0, 'FlashMatch', {
-    bg = '#543F81',
-    fg = 'white'
-})
-vim.api.nvim_set_hl(0, 'FlashCurrent', {
-    bg = '#543F81',
-    fg = 'white'
-})
-
 -- vscode-multi-cursor
 vim.api.nvim_set_hl(0, 'VSCodeCursor', {
     bg = '#542fa4',
@@ -91,8 +77,13 @@ vim.api.nvim_set_hl(0, 'VSCodeCursorRange', {
 
 local cursors = require('vscode-multi-cursor')
 
-vim.keymap.set({ 'n', 'x' }, 'mm', cursors.create_cursor, { expr = true, desc = 'Create cursor' })
-vim.keymap.set({ 'n' }, 'mcm', cursors.cancel, { desc = 'Cancel/Clear all cursors' })
+vim.keymap.set({'n', 'x'}, 'mm', cursors.create_cursor, {
+    expr = true,
+    desc = 'Create cursor'
+})
+vim.keymap.set({'n'}, 'mcm', cursors.cancel, {
+    desc = 'Cancel/Clear all cursors'
+})
 
 vim.keymap.set({'n', 'x', 'i'}, '<c-d>', function()
     cursors.addSelectionToNextFindMatch()
@@ -110,3 +101,16 @@ vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
     remap = true
 })
 
+-- flash
+vim.api.nvim_set_hl(0, 'FlashLabel', {
+    bg = '#E91E63',
+    fg = 'white'
+})
+vim.api.nvim_set_hl(0, 'FlashMatch', {
+    bg = '#543F81',
+    fg = 'white'
+})
+vim.api.nvim_set_hl(0, 'FlashCurrent', {
+    bg = '#543F81',
+    fg = 'white'
+})

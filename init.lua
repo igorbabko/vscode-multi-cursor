@@ -66,12 +66,12 @@ require('lazy').setup({{
 -- vscode-multi-cursor
 vim.api.nvim_set_hl(0, 'VSCodeCursor', {
     bg = '#542fa4',
-    fg = '#ffffff',
+    fg = 'white',
     default = true
 })
 vim.api.nvim_set_hl(0, 'VSCodeCursorRange', {
     bg = '#542fa4',
-    fg = '#ffffff',
+    fg = 'white',
     default = true
 })
 

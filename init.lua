@@ -55,6 +55,19 @@ require('lazy').setup({{
     opts = {}
 }, 'folke/flash.nvim'})
 
+-- vscode-multi-cursor
+vim.api.nvim_set_hl(0, 'VSCodeCursor', {
+    bg = '#542fa4',
+    fg = 'white',
+    default = true
+})
+
+vim.api.nvim_set_hl(0, 'VSCodeCursorRange', {
+    bg = '#542fa4',
+    fg = 'white',
+    default = true
+})
+
 local cursors = require('vscode-multi-cursor')
 
 vim.keymap.set({'n', 'x', 'i'}, '<c-d>', function()
@@ -71,4 +84,20 @@ end)
 
 vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
     remap = true
+})
+
+-- flash
+vim.api.nvim_set_hl(0, 'FlashLabel', {
+    bg = '#e11684',
+    fg = 'white'
+})
+
+vim.api.nvim_set_hl(0, 'FlashMatch', {
+    bg = '#7c634c',
+    fg = 'white'
+})
+
+vim.api.nvim_set_hl(0, 'FlashCurrent', {
+    bg = '#7c634c',
+    fg = 'white'
 })

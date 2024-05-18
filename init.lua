@@ -68,3 +68,7 @@ end)
 vim.keymap.set({'n', 'x', 'i'}, '<cs-l>', function()
     cursors.selectHighlights()
 end)
+
+vim.keymap.set('n', '<c-d>', 'mciw*:nohl<cr>', {
+    remap = true
+})

@@ -53,4 +53,4 @@ require('lazy').setup({{
     event = 'VeryLazy',
     cond = not not vim.g.vscode,
     opts = {}
-}})
+}, 'folke/flash.nvim'})
